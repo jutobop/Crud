@@ -1,34 +1,37 @@
 
 const users = [
-    {
+    {   
+        id: 1,
         name: 'Erik',
         age: 29,
-        email: 'erik@academlo.com',
+        email: 'erik@live.com',
         social: [
             { name: 'facebook', url: 'facebook/erik' },
             { name: 'twitter', url: 'twitter/erik' }
         ],
         gender: 'Male'
     },
-    {
+    {   
+        id: 2,
         name: 'julian',
         age: 29,
-        email: 'julian@academlo.com',
+        email: 'julian@live.com',
         social: [
-            { name: 'facebook', url: 'facebook/erik' },
-            { name: 'twitter', url: 'twitter/erik' }
+            { name: 'facebook', url: 'facebook/julian' },
+            { name: 'twitter', url: 'twitter/julian' }
         ],
         gender: 'Male'
     },
-    {
+    {   
+        id: 3,
         name: 'Veronica',
         age: 29,
-        email: 'veronica@academlo.com',
+        email: 'veronica@live.com',
         social: [
-            { name: 'facebook', url: 'facebook/erik' },
-            { name: 'twitter', url: 'twitter/erik' }
+            { name: 'facebook', url: 'facebook/Veronica' },
+            { name: 'twitter', url: 'twitter/Veronica' }
         ],
-        gender: 'Male'
+        gender: 'Female'
     },
   
 ]
@@ -41,14 +44,28 @@ function mostrarUsers(dataUsers) {
 
      dataUsers.forEach((user)=>{
           const htmlUser =`<tr>
+                           
                            <td>${user.name}</td>
                            <td>${user.email}</td>
-                            <td><button onclick="deleteUser()"class="btn btn-success">Eliminar</button></td>
+                            <td><button onclick="deleteUser(${user.id})"class="btn btn-success">Eliminar</button></td>
                            </tr>`;
           container.innerHTML  += htmlUser;
 
 
      });
+}
+
+
+
+function generadorId(){
+  let biggerId = 0;
+   users.forEach((user)=>{
+       if(user.id >biggerId){
+           biggerId=user.id;
+       }
+
+   })
+   return biggerId+1;
 }
 
 
@@ -64,6 +81,7 @@ function mostrarUsers(dataUsers) {
 
 
     const newUser= {
+        id: generadorId(),
         name:nameUser,
         email:correoUser
     }
@@ -79,9 +97,9 @@ function mostrarUsers(dataUsers) {
 
  mostrarUsers(users);
 
- function  deleteUser(email){
+ function  deleteUser(id){
    
-    const index =   users.findIndex((user)=> user.email=== email)
+    const index =   users.findIndex((user)=> user.id=== id)
       users.splice(index,1)
        mostrarUsers(users);
    }
