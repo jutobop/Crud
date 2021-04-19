@@ -25,15 +25,15 @@
                     <form  id ="formCreateUser" action="" onsubmit="event.preventDefault(),  modifyUser() ">
 
                     <div>
-                        <label for="name" class="form-label" >Nombre</label>
+                        <label for="name" class="form-label" >Marca</label>
                         <input type="text" class="form-control" id="name" aria-describedby="emailHelp"required>
                         
                     </div>
 
                     <div class="mb-3">
 
-                        <label for="correo" class="form-label"required>Correo</label>
-                        <input type="email" class="form-control" id="correo"required>
+                        <label for="correo" class="form-label"required>Modelo</label>
+                        <input type="text" class="form-control" id="correo"required>
 
                     </div>
                     <button  id="btn-form"type="submit"onsubmit="event.preventDefault(),    " class="btn btn-primary">Enviar</button>
@@ -49,8 +49,9 @@
 
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Correo</th>
+                            <th>Marca</th>
+                            <th>modelo</th>
+                            <th>Accion</th>
                             <th>Accion</th>
                         </tr>
                     </thead>
