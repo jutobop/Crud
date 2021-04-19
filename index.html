@@ -17,12 +17,12 @@
             <div class="card-body " > 
 
                 <div class ="d-flex justify-content-end py-3 ">
-                     <button onclick="viewForm()"class="btn btn-primary">Agregar Usuario</button>
+                     <button  onclick="viewForm(), changeCreateButton()" class="btn btn-primary ">Agregar Usuario</button>
                 </div>
 
                 <div id= "ver-form" class="d-none" >
 
-                    <form action="" onsubmit="event.preventDefault(), addUser() ">
+                    <form  id ="formCreateUser" action="" onsubmit="event.preventDefault(),  modifyUser() ">
 
                     <div>
                         <label for="name" class="form-label" >Nombre</label>
@@ -36,7 +36,8 @@
                         <input type="email" class="form-control" id="correo"required>
 
                     </div>
-                    <button  type="submit"onsubmit="event.preventDefault(), deleteUser()" class="btn btn-primary">Enviar</button>
+                    <button  id="btn-form"type="submit"onsubmit="event.preventDefault(),    " class="btn btn-primary">Enviar</button>
+                    
 
                     </form>
 
@@ -56,7 +57,7 @@
 
                     <tbody id="users-container">
                     
-
+                    <!-- generado por js -->
                     </tbody>
 
                 </table>
