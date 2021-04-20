@@ -26,8 +26,8 @@
                                 <td>${car.year}</td>
                                 <td>${car.price}</td>
                                 
-                                    <td><button onclick="deleteUser(${car.id})"class="btn btn-danger">Eliminar</button></td>
-                                    <td><button onclick="editCar(${car.id})"class="btn btn-success">Editar</button></td>
+                                    <td><button onclick="deleteCar(${car.id})"class="btn btn-danger">Delete</button></td>
+                                    <td><button onclick="editCar(${car.id})"class="btn btn-success">Edit</button></td>
                                     
                                 </tr>`;
                 container.innerHTML  += htmlCar;
