@@ -27,7 +27,7 @@
                                 <td>${car.price}</td>
                                 
                                     <td><button onclick="deleteUser(${car.id})"class="btn btn-danger">Eliminar</button></td>
-                                    <td><button onclick="editUser(${car.id})"class="btn btn-success">Editar</button></td>
+                                    <td><button onclick="editCar(${car.id})"class="btn btn-success">Editar</button></td>
                                     
                                 </tr>`;
                 container.innerHTML  += htmlCar;
@@ -44,7 +44,7 @@
 
         function generadorId(){
         let biggerId = 0;
-        car.forEach((car)=>{
+        cars.forEach((car)=>{
             if(car.id >biggerId){
                 biggerId=car.id;
             }
@@ -55,14 +55,20 @@
 
 
         function addCar(){
-            const brandCar = document.getElementById('name').value;
+            const brandCar = document.getElementById('brand').value;
             const modelCar= document.getElementById('model').value;
+            const colorCar = document.getElementById('color').value;
+            const yearCar= document.getElementById('year').value;
+            const priceCar = document.getElementById('price').value;
 
 
             const newCar= {
                 id: generadorId(),
                 brand:brandCar,
-                model:modelCar
+                model:modelCar,
+                color:colorCar,
+                year:yearCar,
+                price:priceCar
             }
 
             cars.push(newCar);
@@ -82,8 +88,12 @@
         function editCar(id){
             const index =   cars.findIndex((car)=> car.id=== id)
             const car = cars[index];
-            document.getElementById('brand').value= car.marca 
-            document.getElementById('model').value= car.modelo
+            document.getElementById('brand').value= car.brand
+            document.getElementById('model').value= car.model
+            document.getElementById('color').value= car.color
+            document.getElementById('year').value= car.year
+            document.getElementById('price').value= car.price
+            
             changeEditButton()
             carIndex = index;
             viewForm();
@@ -98,14 +108,23 @@
 
              if(buttonValue===EDIT){
 
-                const bransCar = document.getElementById('brand').value;
+                const brandCar = document.getElementById('brand').value;
                 const modelCar= document.getElementById('model').value;
+                const colorCar = document.getElementById('color').value;
+                const yearCar= document.getElementById('year').value;
+                const priceCar = document.getElementById('price').value;
+                
 
     
                 const modifyCar= {
                 
                     brand:brandCar,
-                    model:modelCar
+                    model:modelCar,
+                    color:colorCar,
+                    year:yearCar,
+                    price:priceCar
+                    
+
                 }
     
                cars.splice( carIndex, 1, modifyCar);
@@ -114,7 +133,7 @@
                 hideForm()
                 showCars(cars);
              }else{
-                 addUser();
+                 addCar();
              }
            } 
 
