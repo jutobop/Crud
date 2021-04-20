@@ -17,23 +17,23 @@
             <div class="card-body " > 
 
                 <div class ="d-flex justify-content-end py-3 ">
-                     <button  onclick="viewForm(), changeCreateButton()" class="btn btn-primary ">Agregar Usuario</button>
+                     <button  onclick="viewForm(), changeCreateButton()" class="btn btn-primary ">Add Car</button>
                 </div>
 
                 <div id= "ver-form" class="d-none" >
 
-                    <form  id ="formCreateUser" action="" onsubmit="event.preventDefault(),  modifyUser() ">
+                    <form  id ="formCreateUser" action="" onsubmit="event.preventDefault(),  modifyCar() ">
 
                     <div>
-                        <label for="name" class="form-label" >Marca</label>
-                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp"required>
+                        <label for="brand" class="form-label" >Brand</label>
+                        <input type="text" class="form-control" id="brand" aria-describedby="emailHelp"required>
                         
                     </div>
 
                     <div class="mb-3">
 
-                        <label for="correo" class="form-label"required>Modelo</label>
-                        <input type="text" class="form-control" id="correo"required>
+                        <label for="model" class="form-label"required>Model</label>
+                        <input type="text" class="form-control" id="model"required>
 
                     </div>
                     <button  id="btn-form"type="submit"onsubmit="event.preventDefault(),    " class="btn btn-primary">Enviar</button>
@@ -49,14 +49,18 @@
 
                     <thead>
                         <tr>
-                            <th>Marca</th>
-                            <th>modelo</th>
-                            <th>Accion</th>
-                            <th>Accion</th>
+                            
+                            <th>Brand</th>
+                            <th>Model</th>
+                            <th>Color</th>
+                            <th>Year</th> 
+                            <th>Price</th>
+                            <th>Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
 
-                    <tbody id="users-container">
+                    <tbody id="cars-container">
                     
                     <!-- generado por js -->
                     </tbody>

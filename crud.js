@@ -1,32 +1,36 @@
 
-        const coches = [
+        const cars = [
             {   
-                id: 1,
-                marca: 'Mazda',
-                modelo: 323,
-                color: 'erik@live.com',
-                año: 2022,
-                precio: 40000000,
+                id: 1, 
+                brand: 'Mazda',
+                model: 323,
+                color: 'green',
+                year: 2022,
+                price: 40000000,
                 
             },
             
         ]
 
         
-        function mostrarUsers(dataCoches) {
-        const container = document.getElementById('users-container');
+        function showCars(dataCars) {
+        const container = document.getElementById('cars-container');
         container.innerHTML=""; 
 
-            dataCoches.forEach((coche)=>{
-                const htmlCoche =`<tr>
+            dataCars.forEach((car)=>{
+                const htmlCar =`<tr>
                                 
-                                <td>${coche.marca}</td>
-                                <td>${coche.modelo}</td>
-                                    <td><button onclick="deleteUser(${coche.id})"class="btn btn-danger">Eliminar</button></td>
-                                    <td><button onclick="editUser(${coche.id})"class="btn btn-success">Editar</button></td>
+                                <td>${car.brand}</td>
+                                <td>${car.model}</td>
+                                <td>${car.color}</td>
+                                <td>${car.year}</td>
+                                <td>${car.price}</td>
+                                
+                                    <td><button onclick="deleteUser(${car.id})"class="btn btn-danger">Eliminar</button></td>
+                                    <td><button onclick="editUser(${car.id})"class="btn btn-success">Editar</button></td>
                                     
                                 </tr>`;
-                container.innerHTML  += htmlCoche;
+                container.innerHTML  += htmlCar;
 
             
             });
@@ -40,9 +44,9 @@
 
         function generadorId(){
         let biggerId = 0;
-        coches.forEach((coche)=>{
-            if(coche.id >biggerId){
-                biggerId=coche.id;
+        car.forEach((car)=>{
+            if(car.id >biggerId){
+                biggerId=car.id;
             }
 
         })
@@ -50,65 +54,65 @@
         }
 
 
-        function addUser(){
-            const nameUser = document.getElementById('name').value;
-            const correoUser= document.getElementById('correo').value;
+        function addCar(){
+            const brandCar = document.getElementById('name').value;
+            const modelCar= document.getElementById('model').value;
 
 
-            const newUser= {
+            const newCar= {
                 id: generadorId(),
-                marca:nameUser,
-                modelo:correoUser
+                brand:brandCar,
+                model:modelCar
             }
 
-            coches.push(newUser);
+            cars.push(newCar);
             resetForm();
             hideForm()
-            mostrarUsers(coches);
+            showCars(cars);
         
         }
 
-        function  deleteUser(id){
+        function  deleteCar(id){
         
-            const index =   coches.findIndex((coche)=> coche.id=== id)
-            coches.splice(index,1)
-            mostrarUsers(coches);
+            const index =   cars.findIndex((car)=> car.id=== id)
+            cars.splice(index,1)
+            showCars(cars);
         }
         
-        function editUser(id){
-            const index =   coches.findIndex((coche)=> coche.id=== id)
-            const coche = coches[index];
-            document.getElementById('name').value= coche.marca 
-            document.getElementById('correo').value= coche.modelo
+        function editCar(id){
+            const index =   cars.findIndex((car)=> car.id=== id)
+            const car = cars[index];
+            document.getElementById('brand').value= car.marca 
+            document.getElementById('model').value= car.modelo
             changeEditButton()
-            cocheIndex = index;
+            carIndex = index;
             viewForm();
-            mostrarUsers(coches);
+            showCars(cars);
         }
 
     
 
-        function modifyUser(id){
+        function modifyCar(id){
              
              const buttonValue=getFormUserButton().value;
 
              if(buttonValue===EDIT){
 
-                const nameUser = document.getElementById('name').value;
-                const correoUser= document.getElementById('correo').value;
+                const bransCar = document.getElementById('brand').value;
+                const modelCar= document.getElementById('model').value;
 
     
-                const modifyUser= {
+                const modifyCar= {
                 
-                    marca:nameUser,
-                    modelo:correoUser
+                    brand:brandCar,
+                    model:modelCar
                 }
     
-                coches.splice( cocheIndex, 1, modifyUser);
+               cars.splice( carIndex, 1, modifyCar);
             
                 resetForm();
                 hideForm()
-                mostrarUsers(coches);
+                showCars(cars);
              }else{
                  addUser();
              }
@@ -116,8 +120,8 @@
 
 
 
-        mostrarUsers(coches);  {
-           }
+        showCars(cars);  
+          
         
         function resetForm(){
             document.getElementById('formCreateUser').reset();
@@ -156,4 +160,4 @@
                return document.getElementById('btn-form')
            }
             
-        mostrarUsers(coches);
+           showCars(cars);
